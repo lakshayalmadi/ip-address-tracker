@@ -5,48 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="D:\ip address tracker\ip-address-tracker-master\css\style.css">
+  <link rel="stylesheet" href="style.css">
 
   <title>IP Address Tracker</title>
 
+  <!-- fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+	
+	<!-- Leaflet CSS 
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin="" />
+
+	<link rel="stylesheet" href="styles.css">
+
+	 Leaflet JS 
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+	
+	<script type="module" src="scripts/index.js"></script>
+  -->
   
 </head>
 <body>
-  <div class="wrapper flex-col body-background">
-    <header class="pos-rel">
-      <h1 class="heading">IP Address tracker</h1>
-    </header>
-    <form id="form" class="input-container pos-rel">
-      <input type="text">
-      <button type="submit"><img src="/images/icon-arrow.svg" alt=""></button>
+  <header class="top-container">
+    <h1 class="heading1">IP Address Tracker</h1>
+    <form action="" class="form">
+      <input type="text" class="input-text" placeholder="Search for any IP Address or domain">
+      <button class="submit-button" type="submit" ></button>
     </form>
-    <div class="info-container pos-rel">
-      <div>
-        <h3>IP Address</h3>
-        <p id="ip-address">192.212.174.101</p>
+    
+    <dl class="user-data">
+      <div class="user-data">
+        <dt class="data-type">IP Address</dt>
+        <dd class="data-value"></dd>
       </div>
-      <div>
-        <h3>Location</h3>
-        <p id="location">Brooklyn, NY 10001</p>
+      <div class="user-data">
+        <dt class="data-type">Location</dt>
+        <dd class="data-value"></dd>
       </div>
-      <div>
-        <h3>Timezone</h3>
-        <p id="timezone">UTC -05:00</p>
+      <div class="user-data">
+        <dt class="data-type">Timezone</dt>
+        <dd class="data-value"></dd>
       </div>
-      <div>
-        <h3>ISP</h3>
-        <p id="isp">SpaceX Starlink</p>
+      <div class="user-data">
+        <dt class="data-type">ISP</dt>
+        <dd class="data-value"></dd>
       </div>
-    </div>
-    <div id="map" class="map-container"></div>    
-  </div>
-
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin="">
-  </script>
-  <!--Leaflet javascript map js end-->
-  <script src="main.js"></script>
-  </div>
+    </dl>
+  </header>
+  <div></div>
 </body>
 </html>
