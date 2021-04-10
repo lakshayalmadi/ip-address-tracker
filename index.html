@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="D:\ip address tracker\ip-address-tracker-master\css\style.css">
+
+  <title>IP Address Tracker</title>
+
+  
+</head>
+<body>
+  <div class="wrapper flex-col body-background">
+    <header class="pos-rel">
+      <h1 class="heading">IP Address tracker</h1>
+    </header>
+    <form id="form" class="input-container pos-rel">
+      <input type="text">
+      <button type="submit"><img src="/images/icon-arrow.svg" alt=""></button>
+    </form>
+    <div class="info-container pos-rel">
+      <div>
+        <h3>IP Address</h3>
+        <p id="ip-address">192.212.174.101</p>
+      </div>
+      <div>
+        <h3>Location</h3>
+        <p id="location">Brooklyn, NY 10001</p>
+      </div>
+      <div>
+        <h3>Timezone</h3>
+        <p id="timezone">UTC -05:00</p>
+      </div>
+      <div>
+        <h3>ISP</h3>
+        <p id="isp">SpaceX Starlink</p>
+      </div>
+    </div>
+    <div id="map" class="map-container"></div>    
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin="">
+  </script>
+  <!--Leaflet javascript map js end-->
+  <script src="main.js"></script>
+  </div>
+</body>
+</html>
