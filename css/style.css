@@ -1,0 +1,15 @@
+body{
+    font-family: 'Rubik',sans-serif;
+    text-align: center;
+    margin=0;
+    display: flex;
+    flex-flow: column;
+}
+.top-container{
+    flex: 0 0 auto;
+}
+.heading1{
+    color:white;
+    text-align: center;
+    margin: 0;
+}
