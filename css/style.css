@@ -7,27 +7,65 @@
 body{
     font-family: 'Rubik',sans-serif;
     text-align: center;
-    margin:0;
-    display: flex;
-    flex-flow: column nowrap;
     height: 100vh;
     width: 100vw;
 }
-.top-container{
-    flex: 0 0 auto;
-    background: url('/images/pattern-bg.png');
-    padding: 5vh 5% 100px;
+.body-background{
+    width: 100%;
+    height: 100%;
     position: relative;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
-#map{
-    flex: 1 1 70vh;
+.container{
+    background: url('/images/pattern-bg.png');
+    background-repeat: no-repeat;
+    position: relative;
+    margin:0;
 }
 .heading1{
     padding: 25px 0;
     color:white;
     text-align: center;
     margin: 0;
+    width: 100%;
+    height: 100%;
 }
+.input-container{
+    width: 95%;
+    height: 80px;
+    max-width: 500px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    top:5%;
+}
+.input-container input{
+    height: 100%;
+    flex-grow: 8;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    font-size:15px ;
+    padding-left: 10px;
+}
+.input-container button{
+    height: 100%;
+    flex-grow: 1;
+    border: none;
+    border-radius:0 10px 10px 0;
+    background-color: hsl(0, 0%, 17%);
+}
+.input-container button:hover{
+    cursor: pointer;
+    background-color:hsl(0, 0%, 59%);
+  }
+#map{
+    flex: 1 1 70vh;
+}
+
 .form{
     width: min-content;
     margin: 5vh auto;
@@ -43,34 +81,4 @@ body{
     width: min(500px, 80vh);
     border:none;
     font-size: 0.9rem;
-}
-.input:focus{
-    box-shadow: 0 0 5px inset black;
-}
-.submit-button{
-    flex: 0 0 15%;
-    background: hsl(0, 0%, 17%);
-    cursor: pointer;
-    border: none;
-}
-.user-data-item{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: max-content;
-    max-width: 90vw;
-    display: flex;
-    flex-direction: coloumn;
-    justify-content: flex-start;
-    transform: translateY(50%);
-    background: white;
-    z-index: 1;
-    border-radius: 10px;
-}
-.user-data{
-    flex: 0 1 25%;
-    padding: 2% 2vw;
-    position: relative;
 }
