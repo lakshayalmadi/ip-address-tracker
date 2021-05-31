@@ -44,7 +44,7 @@ var getIpDetails = (default_ip)=>{
     .then(results => results.json())
     .then(data => {
         current_ip.innerHTML = data.ip
-        current_location.innerHTML = `${data.location.city} ${data.location.country} ${data.location.postalCode}`
+        current_location.innerHTML = data.location.city+" "+data.location.country+" "+data.location.postalCode
         current_timezone.innerHTML = data.location.timezone
         current_isp.innerHTML = data.isp
 
