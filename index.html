@@ -20,43 +20,43 @@
 
   <!-- leaflet-css -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-  crossorigin=""/>
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
 
   <!-- leaflet-js -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-  crossorigin=""></script>
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
   
 </head>
 <body>
   <div class="first-container ">
     <header class="second-container">
-      <h1 class="heading1">IP Address Tracker</h1>
+      <h1 class="title">IP Address Tracker</h1>
     </header>
     <form action="" id="form" class="input-container">
-      <input type="text">
-      <button type="submit"><img src="/images/icon-arrow.svg" alt="submit-button"></button>
+      <input type="text" placeholder="Search for any IP Address or Domain" id="ip-address">
+      <button type="submit" id="submit-btn"><img src="/images/icon-arrow.svg" alt="submit-button"></button>
     </form>
     <div class="info-container">
       <div>
         <h3 class="data-term">IP Address</h3>
-        <p id="ip-address" class="data-value">192.212.174.101</p>
+        <p id="ip-address" class="results">192.212.174.101</p>
       </div>
       <div>
         <h3 class="data-term">Location</h3>
-        <p id="location" class="data-value">Brooklyn, NY 10001</p>
+        <p id="location" class="results">Brooklyn, NY 10001</p>
       </div>
       <div>
         <h3 class="data-term">Timezone</h3>
-        <p id="timezone"class="data-value">UTC-05:00</p>
+        <p id="timezone"class="results">UTC-05:00</p>
       </div>
       <div>
         <h3 class="data-term">ISP</h3>
-        <p id="isp"class="data-value">SpaceX Starlink</p>
+        <p id="isp"class="results">SpaceX Starlink</p>
       </div>
     </div>
-    <div id="map" class="map-container"></div>
+    <div id="display-map" class="map-container"></div>
   </div>
   <footer><strong><p>Made with <i class="fas fa-heart"></i> by Lakshay Almadi</p></strong></footer>
   

@@ -1,84 +1,84 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
- }
-body{
-    font-family: 'Rubik',sans-serif;
-    text-align: center;
-} 
-.first-container{
-    background-image: url('/images/pattern-bg.png');
-    background-repeat: no-repeat;
-    background-size: 100% 75%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding-top: 30px;
-    justify-content: flex-start;
-    align-items: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.heading1{
-    color: white;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 30px;
-    text-align: center;
-    font-size: 2rem;
+body {
+  font-family: "Rubik", sans-serif;
+  text-align: center;
 }
-.input-container{
-    width: 95%;
-    height: 45px;
-    max-width: 500px;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    top:5%;
-    margin-bottom: 40px;
+.first-container {
+  background-image: url("/images/pattern-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 75%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  justify-content: flex-start;
+  align-items: center;
 }
-.input-container input{
-    height: 100%;
-    flex-grow: 8;
-    border: none;
-    border-radius: 10px 0 0 10px;
-    font-size:15px ;
-    padding-left: 10px;
+.title {
+  color: white;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 35px;
+  text-align: center;
+  font-size: 2.5rem;
 }
-.input-container button{
-    height: 100%;
-    flex-grow: 1;
-    border: none;
-    border-radius:0 10px 10px 0;
-    background-color: hsl(0, 0%, 17%);
+.input-container {
+  width: 95%;
+  height: 45px;
+  max-width: 500px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  top: 5%;
+  margin-bottom: 40px;
 }
-.input-container button:hover{
-    cursor: pointer;
-    background-color:hsl(0, 0%, 59%);
+.input-container input {
+  height: 100%;
+  flex-grow: 8;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  font-size: 15px;
+  padding-left: 10px;
 }
-.info-container{
-    width: 95%;
-    max-width: 1000px;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: auto;
-    min-height: 150px;
-    top:10%;
-    border: none;
-    border-radius: 10px;
-    z-index:1;
+.input-container button {
+  height: 100%;
+  flex-grow: 1;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  background-color: hsl(0, 0%, 17%);
+}
+.input-container button:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 59%);
+}
+.info-container {
+  width: 95%;
+  max-width: 1000px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  min-height: 150px;
+  top: 10%;
+  border: none;
+  border-radius: 10px;
+  z-index: 1;
 }
 
-.info-container div{
+.info-container div {
   width: 25%;
   height: 50%;
   border-right: 3px hsl(0, 0%, 17%) solid;
   padding: 0 20px;
 }
 
-.info-container div:last-of-type{
+.info-container div:last-of-type {
   border: none;
 }
 
@@ -88,49 +88,48 @@ body{
   font-size: 15px;
 }
 
-.info-container div p{
+.info-container div p {
   font-weight: 500;
   font-size: 20px;
   margin-top: 10px;
 }
 
+.map-container {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  bottom: 0;
+}
 
-.map-container{
-    width: 100%;
-    height: 60%;
-    position: absolute;
-    bottom: 0;
-  }
-  
-form{
-    width: 100%;
-    height: 100%;
+form {
+  width: 100%;
+  height: 100%;
 }
-footer{
-    color: black;
+footer {
+  color: black;
 }
-  
-  @media only screen and (max-width: 768px){
-    .info-container{
-      flex-direction: column;
-    }
-  
-    .info-container div{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: auto;
-      min-height: 70px;
-      border-right: none;
-    }
-    
-    .info-container div h3 {
-      font-size: 150%;
-    }
-    
-    .info-container div p{
-      font-size: 130%;
-    }
+
+@media only screen and (max-width: 768px) {
+  .info-container {
+    flex-direction: column;
   }
+
+  .info-container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    min-height: 70px;
+    border-right: none;
+  }
+
+  .info-container div h3 {
+    font-size: 150%;
+  }
+
+  .info-container div p {
+    font-size: 130%;
+  }
+}
