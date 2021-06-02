@@ -27,7 +27,7 @@ body {
   text-align: center;
   font-size: 2.5rem;
 }
-.input-container {
+.input_container {
   width: 95%;
   height: 45px;
   max-width: 500px;
@@ -37,7 +37,7 @@ body {
   top: 5%;
   margin-bottom: 40px;
 }
-.input-container input {
+.input_container input {
   height: 100%;
   flex-grow: 8;
   border: none;
@@ -45,14 +45,14 @@ body {
   font-size: 15px;
   padding-left: 10px;
 }
-.input-container button {
+.input_container button {
   height: 100%;
   flex-grow: 1;
   border: none;
   border-radius: 0 10px 10px 0;
   background-color: hsl(0, 0%, 17%);
 }
-.input-container button:hover {
+.input_container button:hover {
   cursor: pointer;
   background-color: hsl(0, 0%, 59%);
 }

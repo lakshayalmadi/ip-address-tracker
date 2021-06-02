@@ -2,68 +2,82 @@ const API_KEY = "at_DyfVD6rtsipdTDP7cipl1wmoGyvcT&ipAddress=8.8.8.8";
 const API_LINK = 'https://geo.ipify.org/api/'
 let current_version = 'v1'
 
+const map = L.map('display-map',  { zoomControl: false }).setView([28.7041, 77.1025], 13);
+L.control
+	.zoom({
+		position: "bottomleft",
+	})
+	.addTo(map);
+L.tileLayer(
+	"https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYW5pc2hzYXhlbmEiLCJhIjoiY2tlc3J1cGgyMWV4NjJ3b2Vkeml1cnQwZCJ9.5JF6rKnslEOR23129gOYyQ",
+	{
+		attribution:'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		maxZoom: 18,
 
-let current_ip = document.getElementById('current_ip');
-let current_location = document.getElementById('current_location');
-let current_timezone = document.getElementById('current_timezone');
-let current_isp = document.getElementById('current_isp');
+		id: "mapbox/streets-v11",
+		tileSize: 512,
+		zoomOffset: -1,
+		accessToken: "pk.eyJ1IjoibGFrc2hheTEyIiwiYSI6ImNrcGZrNmp3YjBrMWQyb280eTVzd2s2YWkifQ.zhCtx0Xz99dXY6Hw-FChhA",
+	}
+).addTo(map);
 
-const entered_ip = document.getElementById('ip_address');
-const submit_btn = document.getElementById('submit_btn');
 
-const headers_option = {
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-    }
-}
+const form = document.querySelector('.input_container');
+form.addEventListener("submit_btn", searchIP);
 
-const map = L.map('display-map', {
-    'center': [0,0],
-    'zoom': 0,
-    'layers': [
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          })
-    ]
+var givenIcon = L.icon({
+	iconUrl: "./assets/images/icon-location.svg",
+	iconSize: [30],
+	iconAnchor: [22, 94],
+	popupAnchor: [-3, -76],
+	shadowSize: [68, 95],
+	shadowAnchor: [22, 94],
 });
 
-var updateMarker = (update_marker = [18, 18]) => {
-    map.setView(update_marker, 13);
-    L.marker(update_marker).addTo(map);
-};
+async function searchIP(e){
+    e.preventDefault();
+    const input = document.querySelector(".input_text");
+    const searchButton = document.querySelector(".submit_btn");
+    let ipAddress = input.value;
 
-var getIpDetails = (default_ip)=>{
-    if(default_ip == undefined){
-        var ip_url= `${API_LINK}${current_verion}?apikey=${API_KEY}`
-    }
-    else{
-        var ip_url = `${API_LINK}${current_version}?apikey=${API_KEY}&ipAddress=${default_ip}`
-    }
+    if(ipAddress){
+        const data = await fetch(
+            `${API_LINK}${current_version}?apikey=${API_KEY}&ipAddress=${ipAddress}`
+        )
+        .then((res)=> res.json())
+        .then((data)=>data);
 
-    fetch(ip_url, headers_option)
-    .then(results => results.json())
-    .then(data => {
-        current_ip.innerHTML = data.ip
-        current_location.innerHTML = data.location.city+" "+data.location.country+" "+data.location.postalCode
-        current_timezone.innerHTML = data.location.timezone
-        current_isp.innerHTML = data.isp
+        const latitude = data.location.lat;
+        const longitude = data.location.lng;
 
-        updateMarker([data.location.lat, data.location.lng])
-
-    })
-    .catch(error => {
-        alert("Unable to get IP details")
-        console.log(error)
-    })
+        fixMap(latitude, longitude);
+        setTimeout(fixDom(data), 1000);
+    }else{
+        searchButton.style.backgroundColor = "red"
+        const searchBar = document.querySelector(".input_container");
+		searchBar.style.animation = "0.1s linear .1s 3 alternate slidein";
+		setTimeout(() => {
+			searchButton.style.backgroundColor = "black";
+			searchBar.style.animation = "none";
+		}, 3000);
+	}
+	input.value = "";
 }
 
-document.addEventListener('load', updateMarker())
+function fixMap(la,lo){
+    map.setView([la,lo], 13);
+    L.marker([la,lo], {icon: givenIcon}).addTo(map);
+}
 
-submit_btn.addEventListener('click', e =>{
-    e.preventDefault()
-    if(entered_ip.value != '' && entered_ip.value != null){
-        getIpDetails(entered_ip.value)
-        return
-    }
-    alert('Please enter a valid IP address');
-});
+function fixDom(data){
+    
+    const current_location = document.getElementById('current_location');
+    const current_ip = document.getElementById('current_ip');
+    const current_timezone = document.getElementById('current_timezone');
+    const current_isp = document.getElementById('current_isp');
+
+    current_ip.textContent= data.ip;
+    current_location.textContent = data.location.city+" "+data.location.country+" "+data.location.postalCode;
+    current_timezone.textContent = data.location.timezone;
+    current_isp.textContent = data.isp;
+}
