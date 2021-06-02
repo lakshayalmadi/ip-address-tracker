@@ -21,7 +21,7 @@ L.tileLayer(
 ).addTo(map);
 
 
-const form = document.querySelector('.input_container');
+const form = document.getElementById('form');
 form.addEventListener("submit_btn", searchIP);
 
 var givenIcon = L.icon({
@@ -35,16 +35,16 @@ var givenIcon = L.icon({
 
 async function searchIP(e){
     e.preventDefault();
-    const input = document.querySelector(".input_text");
-    const searchButton = document.querySelector(".submit_btn");
+    const input = document.getElementById("ip_address");
+    const searchButton = document.getElementById("submit_btn");
     let ipAddress = input.value;
 
     if(ipAddress){
         const data = await fetch(
             `${API_LINK}${current_version}?apikey=${API_KEY}&ipAddress=${ipAddress}`
         )
-        .then((res)=> res.json())
-        .then((data)=>data);
+            .then((res)=> res.json())
+            .then((data)=>data);
 
         const latitude = data.location.lat;
         const longitude = data.location.lng;
@@ -53,7 +53,7 @@ async function searchIP(e){
         setTimeout(fixDom(data), 1000);
     }else{
         searchButton.style.backgroundColor = "red"
-        const searchBar = document.querySelector(".input_container");
+        const searchBar = document.getElementById("form");
 		searchBar.style.animation = "0.1s linear .1s 3 alternate slidein";
 		setTimeout(() => {
 			searchButton.style.backgroundColor = "black";
