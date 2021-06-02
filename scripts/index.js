@@ -22,7 +22,8 @@ L.tileLayer(
 
 
 const form = document.getElementById('form');
-form.addEventListener("submit_btn", searchIP);
+
+form.addEventListener("submit", searchIP);
 
 var givenIcon = L.icon({
 	iconUrl: ".images/icon-location.svg",
@@ -38,13 +39,14 @@ async function searchIP(e){
     const input = document.getElementById("ip_address");
     const searchButton = document.getElementById("submit_btn");
     let ipAddress = input.value;
+    const regex = /^(http(s?):\/\/)((www\.)+[a-zA-Z0-9\.\-\_])+(\.[a-zA-Z]{2,3})|[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/;
 
-    if(ipAddress){
+    if(regex.test(ipAddress)){
         const data = await fetch(
             `${API_LINK}${current_version}?apikey=${API_KEY}&ipAddress=${ipAddress}`
         )
-            .then((res)=> res.json())
-            .then((data)=>data);
+            .then((res) => res.json())
+            .then((data) => data);
 
         const latitude = data.location.lat;
         const longitude = data.location.lng;
