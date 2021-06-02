@@ -2,18 +2,17 @@ const API_KEY = "at_DyfVD6rtsipdTDP7cipl1wmoGyvcT&ipAddress=8.8.8.8";
 const API_LINK = 'https://geo.ipify.org/api/'
 let current_version = 'v1'
 
-const map = L.map('display-map',  { zoomControl: false }).setView([28.7041, 77.1025], 13);
+const map = L.map('display-map').setView([28.7041, 77.1025], 13);
 L.control
 	.zoom({
 		position: "bottomleft",
 	})
 	.addTo(map);
 L.tileLayer(
-	"https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYW5pc2hzYXhlbmEiLCJhIjoiY2tlc3J1cGgyMWV4NjJ3b2Vkeml1cnQwZCJ9.5JF6rKnslEOR23129gOYyQ",
+	"https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGFrc2hheTEyIiwiYSI6ImNrcGZrNmp3YjBrMWQyb280eTVzd2s2YWkifQ.zhCtx0Xz99dXY6Hw-FChhA",
 	{
 		attribution:'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		maxZoom: 18,
-
 		id: "mapbox/streets-v11",
 		tileSize: 512,
 		zoomOffset: -1,
@@ -26,7 +25,7 @@ const form = document.querySelector('.input_container');
 form.addEventListener("submit_btn", searchIP);
 
 var givenIcon = L.icon({
-	iconUrl: "./assets/images/icon-location.svg",
+	iconUrl: ".images/icon-location.svg",
 	iconSize: [30],
 	iconAnchor: [22, 94],
 	popupAnchor: [-3, -76],
